@@ -1,0 +1,93 @@
+---
+# NexusAir-Technologies clang-tidy 配置
+# 命名规范检查 + 安全规则
+
+Checks: >
+  -*,
+  readability-identifier-naming,
+  bugprone-*,
+  -bugprone-easily-swappable-parameters,
+  misc-no-recursion,
+  cppcoreguidelines-narrowing-conversions,
+  cppcoreguidelines-pro-type-cstyle-cast
+
+CheckOptions:
+  # 类：UpperCamelCase
+  - key: readability-identifier-naming.ClassCase
+    value: CamelCase
+  - key: readability-identifier-naming.StructCase
+    value: CamelCase
+
+  # 函数/方法：lowerCamelCase
+  - key: readability-identifier-naming.FunctionCase
+    value: camelBack
+  - key: readability-identifier-naming.MethodCase
+    value: camelBack
+
+  # 局部变量：snake_case
+  - key: readability-identifier-naming.LocalVariableCase
+    value: lower_case
+  - key: readability-identifier-naming.ParameterCase
+    value: lower_case
+
+  # 私有成员：_前缀 snake_case
+  - key: readability-identifier-naming.PrivateMemberCase
+    value: lower_case
+  - key: readability-identifier-naming.PrivateMemberPrefix
+    value: '_'
+  - key: readability-identifier-naming.ProtectedMemberCase
+    value: lower_case
+  - key: readability-identifier-naming.ProtectedMemberPrefix
+    value: '_'
+
+  # 公有成员：snake_case（无前缀）
+  - key: readability-identifier-naming.PublicMemberCase
+    value: lower_case
+
+  # 结构体成员：snake_case
+  - key: readability-identifier-naming.MemberCase
+    value: lower_case
+
+  # 静态常量/constexpr：k前缀 CamelCase
+  - key: readability-identifier-naming.StaticConstantCase
+    value: CamelCase
+  - key: readability-identifier-naming.StaticConstantPrefix
+    value: 'k'
+  - key: readability-identifier-naming.ConstexprVariableCase
+    value: CamelCase
+  - key: readability-identifier-naming.ConstexprVariablePrefix
+    value: 'k'
+  - key: readability-identifier-naming.GlobalConstantCase
+    value: CamelCase
+  - key: readability-identifier-naming.GlobalConstantPrefix
+    value: 'k'
+
+  # 全局变量：snake_case
+  - key: readability-identifier-naming.GlobalVariableCase
+    value: lower_case
+
+  # 枚举类型：UpperCamelCase
+  - key: readability-identifier-naming.EnumCase
+    value: CamelCase
+
+  # 枚举值：UPPER_CASE
+  - key: readability-identifier-naming.EnumConstantCase
+    value: UPPER_CASE
+
+  # 宏：UPPER_CASE
+  - key: readability-identifier-naming.MacroDefinitionCase
+    value: UPPER_CASE
+
+  # 命名空间：snake_case
+  - key: readability-identifier-naming.NamespaceCase
+    value: lower_case
+
+  # typedef/using：UpperCamelCase
+  - key: readability-identifier-naming.TypeAliasCase
+    value: CamelCase
+  - key: readability-identifier-naming.TypedefCase
+    value: CamelCase
+
+  # 模板参数：UpperCamelCase
+  - key: readability-identifier-naming.TemplateParameterCase
+    value: CamelCase

@@ -9,6 +9,7 @@ on:
 
 jobs:
   ruff:
+    name: Lint & Format
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,13 +22,14 @@ jobs:
       - name: Install ruff
         run: pip install ruff
 
-      - name: Ruff lint
-        run: ruff check .
+      - name: Ruff lint (naming, type hints, style)
+        run: ruff check . --output-format=github
 
       - name: Ruff format check
         run: ruff format --check .
 
   pytest:
+    name: Tests
     runs-on: ubuntu-latest
     if: hashFiles('tests/') != ''
     steps:

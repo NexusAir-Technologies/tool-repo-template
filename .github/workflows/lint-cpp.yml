@@ -8,9 +8,11 @@ on:
       - '**.h'
       - '**.hpp'
       - '.clang-format'
+      - '.clang-tidy'
 
 jobs:
   clang-format:
+    name: Code Format
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,7 +23,30 @@ jobs:
           clang-format-version: '17'
           check-path: 'src'
 
+  clang-tidy:
+    name: Naming & Safety
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install clang-tidy
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-tidy-17
+          sudo update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-17 100
+
+      - name: Run clang-tidy
+        run: |
+          find src/ -name '*.cpp' -o -name '*.c' | head -200 | while read file; do
+            echo "Checking: $file"
+            clang-tidy "$file" \
+              --config-file=.clang-tidy \
+              --warnings-as-errors='readability-identifier-naming,misc-no-recursion' \
+              -- -std=c++17 -Isrc/ 2>&1 || exit 1
+          done
+
   cppcheck:
+    name: Static Analysis
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

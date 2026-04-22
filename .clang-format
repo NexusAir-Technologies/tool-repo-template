@@ -1,8 +1,8 @@
 BasedOnStyle: Google
-IndentWidth: 4
-TabWidth: 4
+IndentWidth: 8
+TabWidth: 8
 UseTab: ForIndentation
-ColumnLimit: 120
+ColumnLimit: 140
 AllowShortFunctionsOnASingleLine: Inline
 AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine: false
@@ -10,3 +10,5 @@ BreakBeforeBraces: Linux
 PointerAlignment: Right
 SortIncludes: true
 IncludeBlocks: Regroup
+SpaceBeforeParens: ControlStatements
+AlignAfterOpenBracket: Align
