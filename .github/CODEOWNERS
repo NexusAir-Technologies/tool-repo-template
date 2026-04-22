@@ -1,0 +1,10 @@
+# Maintainers have final review authority on all files
+* @NexusAir-Technologies/maintainers
+
+# Firmware team owns embedded code
+# /src/firmware/ @NexusAir-Technologies/firmware
+# /boards/      @NexusAir-Technologies/firmware
+
+# Software team owns application code
+# /src/app/     @NexusAir-Technologies/software
+# /tools/       @NexusAir-Technologies/software
