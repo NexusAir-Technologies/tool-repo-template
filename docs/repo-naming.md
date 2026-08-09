@@ -1,7 +1,7 @@
 # NexusAir-Technologies 仓库命名规范
 
 > 版本：1.0 | 生效日期：2026-08-09
-> 适用范围：组织内**所有新建** GitHub 仓库；存量仓库保持原名，不强制迁移。
+> 适用范围：组织内**所有新建** GitHub 仓库。存量仓库已于 2026-08-09 完成首批迁移（10 个），仅 PX4 相关与模板仓库保留原名，见「八、存量仓库迁移记录」。
 
 ---
 
@@ -11,7 +11,7 @@
 2. 命名风格：**前缀用全小写，实体用 UpperCamelCase（驼峰）**，两者之间用单个下划线 `_` 分隔。
 3. **禁止**使用连字符 `-`、空格；下划线**仅允许**出现在前缀之后，实体内部不使用下划线。
 4. 仓库名应描述「**做什么**」（领域语义），而非「用什么做」（技术栈）。
-5. 新仓库创建时按本规范命名；存量仓库不迁移，避免破坏外部链接、CI 与克隆 URL。
+5. 新仓库创建时按本规范命名。存量仓库已于 2026-08-09 完成首批迁移（10 个仓库），仅 PX4 相关（`PX4-Autopilot_VectorMC`、`Vector_MC`、`PX4-H1`）与模板仓库 `tool-repo-template` 保留原名。
 
 ## 二、命名格式
 
@@ -90,24 +90,33 @@
 - [ ] 是否有同名 / 近名仓库需区分（改用 Variant）？
 - [ ] 与 `tool-repo-template` 的 README / CLAUDE.md 模板是否一致？
 
-## 八、存量仓库对照表（仅参考，不迁移）
+## 八、存量仓库迁移记录（2026-08-09）
 
-| 现有仓库名 | 若按新规范命名 | 备注 |
-|------------|----------------|------|
-| `agent-skills` | `agent_Skills` | 已接近规范，可保留 |
-| `tool-repo-template` | `tool_RepoTemplate` | 模板仓，建议保留原名 |
-| `fw-rk3588-seeker` | `fw_RK3588Seeker` | |
-| `fw-stm32-guidance` | `fw_Stm32Guidance` | |
-| `fw-stm32-guidance_track` | `fw_Stm32GuidanceTrack` | `_track` 变体并入驼峰 |
-| `PX4-Autopilot_VectorMC` | `px4_VectorMC` | 与 `Vector_MC` 疑似重复 |
-| `Vector_MC` | `px4_VectorMC` | 疑似冗余，建议评估归档 |
-| `PX4-H1` | `px4_H1` | |
-| `galvanometer` | `fw_Galvanometer` | |
-| `weekly-reports` | `org_WeeklyReports` | |
-| `claude-deepseek` | `tool_ClaudeDeepSeek` | |
-| `image2-mcp` | `agent_Image2MCP` | MCP server 归代理生态 |
-| `isaac_so_arm101_catch` | `ai_IsaacSoArm101Catch` | |
-| `ai-inventory-system` | `app_AiInventorySystem` | |
+首批迁移已执行完成，以下 10 个仓库按本规范重命名（GitHub 对旧 URL 自动重定向）：
+
+| 原名称 | 迁移后名称 |
+|--------|------------|
+| `agent-skills` | `agent_Skills` |
+| `fw-rk3588-seeker` | `fw_RK3588Seeker` |
+| `fw-stm32-guidance` | `fw_Stm32Guidance` |
+| `fw-stm32-guidance_track` | `fw_Stm32GuidanceTrack` |
+| `galvanometer` | `fw_Galvanometer` |
+| `weekly-reports` | `org_WeeklyReports` |
+| `claude-deepseek` | `tool_ClaudeDeepSeek` |
+| `image2-mcp` | `agent_Image2MCP` |
+| `isaac_so_arm101_catch` | `ai_IsaacSoArm101Catch` |
+| `ai-inventory-system` | `app_AiInventorySystem` |
+
+以下仓库保留原名，后续按需评估：
+
+| 仓库名 | 保留原因 |
+|--------|----------|
+| `PX4-Autopilot_VectorMC` | PX4 相关，暂不迁移 |
+| `Vector_MC` | PX4 相关；与 `PX4-Autopilot_VectorMC` 疑似重复，建议评估归档 |
+| `PX4-H1` | PX4 相关，暂不迁移 |
+| `tool-repo-template` | 组织模板仓，保留原名 |
+
+> 已迁移仓库外部引用需同步更新（README / CI / 文档中的旧链接）；GitHub 为旧 URL 提供重定向。
 
 ---
 
@@ -116,4 +125,4 @@
 - **风格来源**：`前缀_驼峰` 兼顾「类别一眼可辨」（前缀）与「产品名可读性」（驼峰实体），下划线仅作为前缀与实体间的清晰边界。
 - **GitHub 兼容性**：下划线与大小写混合命名在 GitHub 完全有效；URL 对大小写不敏感，会重定向到创建时的大小写，克隆地址以创建时为准。
 - **强制前缀**：仓库名本身即可表达类别，配合 GitHub topic 与 README 三级定位，降低检索与归档成本。
-- **仅约束新仓库**：避免大规模重命名破坏历史链接；如未来需要统一，可单独立项分批迁移并同步改 CI/文档。
+- **存量迁移**：2026-08-09 已完成首批 10 个仓库迁移；PX4 相关与模板仓暂保留原名，后续按需评估。
