@@ -6,6 +6,12 @@
 
 What this project does and why it exists.
 
+## Repository Naming
+
+New repositories must follow the organization naming standard: `{prefix}_{Entity}[{Variant}]` (lowercase prefix + underscore + UpperCamelCase entity). See [docs/repo-naming.md](docs/repo-naming.md) for the full convention.
+
+Valid prefixes: `fw`, `px4`, `tool`, `agent`, `ai`, `app`, `org`.
+
 ## Getting Started
 
 ### Prerequisites
